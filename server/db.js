@@ -1,4 +1,8 @@
-require('dotenv').config();
+const path = require('path');
+const env = process.env.NODE_ENV || 'development';
+const envFile = env === 'production' ? '.env' : '.env.local';
+
+require('dotenv').config({ path: path.resolve(__dirname, envFile) });
 
 // console.log(process.env.DB_PORT);
 
